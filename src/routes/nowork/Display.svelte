@@ -1,14 +1,20 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import Self from './Display.svelte';
 	let { item } = $props();
 
 	let childrenCopy = $state(item.children);
+	let childrenTracked = $derived(item.children);
 
 	$effect(() => {
-		let updatedChildren = item.children;
-		childrenCopy = updatedChildren;
-		console.log('Updated children', updatedChildren);
+		let updatedChildren = childrenTracked;
+		let currentChildren = untrack(() => childrenCopy);
+		let currentChildrenLength = untrack(() => childrenCopy.length);
+		//console.log('Logging', { currentChildren, updatedChildren });
+
+		if (updatedChildren.length !== currentChildrenLength) {
+			childrenCopy = updatedChildren;
+		}
 	});
 
 	onMount(() => {

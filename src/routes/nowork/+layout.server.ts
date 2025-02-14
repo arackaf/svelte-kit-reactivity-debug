@@ -1,10 +1,10 @@
 const defultItems = [
 	{ id: 1, name: 'a' },
-	{ id: 2, name: 'aa', parent: 1 },
-	{ id: 5, name: 'aa i', parent: 2 },
+	{ id: 2, name: 'aa', parent: 1 }
+	//{ id: 5, name: 'aa i', parent: 2 },
 
-	{ id: 3, name: 'b' },
-	{ id: 4, name: 'c' }
+	//{ id: 3, name: 'b' },
+	//{ id: 4, name: 'c' }
 ];
 
 let loadCount = 0;
