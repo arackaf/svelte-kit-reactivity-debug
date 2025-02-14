@@ -1,6 +1,6 @@
 const defultItems = [
-	{ id: 1, name: 'a' },
-	{ id: 2, name: 'aa', parent: 1 }
+	{ id: 1, name: 'Item 1' },
+	{ id: 2, name: 'Item 1 a', parent: 1 }
 	//{ id: 5, name: 'aa i', parent: 2 },
 
 	//{ id: 3, name: 'b' },
