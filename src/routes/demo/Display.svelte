@@ -8,16 +8,32 @@
 
 	// WORKS
 	// $effect(() => {
+	// console.log(
+	// 	untrack(() => childrenCopy.length),
+	// 	untrack(() => childrenTracked.length)
+	// );
 	// 	childrenCopy = childrenTracked;
 	// });
 
 	// NO WORK
 	$effect(() => {
+		console.log({ childrenTracked });
+	});
+	$effect(() => {
 		let updatedChildren = childrenTracked;
 		let currentChildrenLength = untrack(() => childrenCopy.length);
 
+		console.log('----');
+		console.log(
+			untrack(() => childrenCopy.length),
+			untrack(() => childrenTracked.length)
+		);
+		console.log(currentChildrenLength, updatedChildren.length);
+		console.log('----');
+
 		if (updatedChildren.length !== currentChildrenLength) {
-			childrenCopy = updatedChildren;
+			console.log('FIRE FIRE FIRE', childrenTracked);
+			childrenCopy = childrenTracked;
 		}
 	});
 
@@ -26,7 +42,7 @@
 	});
 </script>
 
-<span>{item.name}</span>
+<span>{item.id} {item.name}</span>
 <br />
 
 {#if childrenCopy.length}

@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Display from './Display.svelte';
+	import Display2 from './Display2.svelte';
+
 	let nextId = $state(-1);
 	let items = $state([
 		{ id: 1, name: 'Item 1' },
@@ -30,5 +32,9 @@
 	>
 	{#each stackedItems as item (item.id)}
 		<Display {item} />
+	{/each}
+	<hr class="w-full" />
+	{#each stackedItems as item (item.id)}
+		<Display2 {item} />
 	{/each}
 </div>
